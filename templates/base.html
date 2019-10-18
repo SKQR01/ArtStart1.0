@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+
+
+    {#    <link rel="stylesheet" href="{{ url_for('static', filename='css/jcrop.css') }}">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}">
+
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+</head>
+
+
+<body>
+<nav class="navbar navbar-dark">
+    <div class="icon-title d-flex justify-content-center">
+        <a class="navbar-brand mr-auto " href="/posts">
+            <img src="{{ url_for('static', filename='img/icons/ArtStart.svg') }}"
+                 class="img-fluid" alt="" style="height: 80px;">
+            ArtStart
+        </a>
+
+    </div>
+
+    <div class="row">
+
+        <form class="form-inline">
+            <input class="form-control mr-sm-2 col" type="search" placeholder="Search" aria-label="Search" name="q"
+                   value="{{ request.args.get('q', '') }}">
+            <button class="btn btn-outline-success my-2 my-sm-0 col"><i class="fas fa-search"></i></button>
+
+        </form>
+
+
+        <ul class="navbar-nav  navbar-expand">
+            {% if not current_user.is_authenticated %}
+                <li class="nav-item reg col">
+                    <a class="nav-link" href="/register">Регистрация</a>
+                </li>
+                <li class="nav-item log col">
+                    <a class="nav-link" href="/login">Войти</a>
+                </li>
+            {% endif %}
+
+            {% if current_user.is_authenticated %}
+                <li class="nav-item logout col">
+                    <a class="nav-link" href="/logout">Выйти</a>
+                </li>
+                <li class="nav-item home col">
+                    <a class="nav-link" href="/home">Профиль</a>
+                </li>
+                <li class="nav-item home col">
+                    <a class="nav-link" href="/">Info</a>
+                </li>
+            {% endif %}
+        </ul>
+
+
+        <button class="navbar-toggler col" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('users.index') }}">Пользователи</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('posts.index') }}">Посты</a>
+            </li>
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('posts.create_post') }}">Создать пост</a>
+                </li>
+            {% endif %}
+
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+
+    <h1>
+        {% block content_title %}
+
+        {% endblock %}
+    </h1>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+</div>
+<script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+{#<script src="{{ url_for('static', filename='js/imagesloaded.pkgd.js') }}"></script>#}
+{#<script src="{{ url_for('static', filename='js/jquery-imagefill.js') }}"></script>#}
+
+{#<script src="{{ url_for('static', filename='js/masonry.pkgd.js') }}"></script>#}
+
+
+{#<script src="{{ url_for('static', filename='js/jcrop.js') }}"></script>#}
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<div class="clear" style="width:auto; height: 250px;"></div>
+</body>
+
+</html>
