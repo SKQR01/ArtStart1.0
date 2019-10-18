@@ -1,5 +1,6 @@
 from app import app
-import view 
+import view
+import os
 
 from posts.blueprint import posts
 from users.blueprint import users
