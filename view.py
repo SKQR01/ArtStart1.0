@@ -49,8 +49,13 @@ def reg_user():
             return render_template('users/user_register.html')
 
         if confirm_password == password:
-            u = User(nickname=nickname, email=email, password=password, active=True)
+            pic = Picture.query.filter(Picture.name == '.no_image.jpg').first()
+
+            u = User(nickname=nickname, email=email, password=password, active=True, description=' ')
+
+            u.avatar.append(pic)
             db.session.add(u)
+
             db.session.commit()
             return redirect(url_for('index'))
     else:

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, Response, json
-from flask_json import json_response
-from app import app, db, conn, cursor
+from app import app, db
+from PIL import Image
 from mod import Post, Picture, Tag, Comment, User, user_likes
 import os
 from werkzeug.utils import secure_filename
@@ -44,6 +44,7 @@ def create_post():
         title = request.form.get('title')
         body = request.form.get('body')
         file = request.files['file']
+
         user = current_user
 
         for t in request.form.getlist('tags'):
@@ -52,17 +53,20 @@ def create_post():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file_prev= Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file_prev.save(os.path.join(app.config['UPLOAD_FOLDER'] + '\\post_prev', filename), quality=15,optimize=True)
+
 
             pic = Picture(name = filename)
             db.session.add(pic)
             db.session.commit()
-        
+
             try:
                 post = Post(title=title, body=body, likes=0)
                 post.pictures.append(pic)
                 post.tags.append(tag)
                 post.user.append(user)
-                
+
                 db.session.add(post)
                 db.session.commit()
             except:

@@ -16,7 +16,7 @@
                     <a href="{{ url_for('posts.post_detail', id = p.id) }}">
                         {% for i in p.pictures %}
                             <div class="card">
-                                <img src="{{ url_for('static', filename='img/' +  i.name) }}" class="img-fluid">
+                                <img src="{{ url_for('static', filename='img/post_prev/' +  i.name) }}" class="img-fluid">
                             </div>
                         {% endfor %}
                     </a>

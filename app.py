@@ -3,6 +3,7 @@ from config import Conf
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 
+
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 

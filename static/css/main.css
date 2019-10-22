@@ -20,31 +20,22 @@ body .navbar .navbar-brand {
     height: auto;
 }
 
-.card-columns .card{
+.card-columns .card {
     margin: 0px;
     padding: 0px;
     border-radius: 0px;
     border: 0px;
 }
 
-.jumbotron .avatar{
+.jumbotron .avatar {
     width: 100px;
 }
 
-/*.grid-quarter{*/
-/*    max-width: 600px;*/
-/*    max-height: 300px;*/
-/*    height: 200px;*/
-/*    width: 200px;*/
-/*}*/
 
 .card img {
     border-radius: 0;
 }
 
-.form-group {
-    width: 100%;
-}
 
 .card-columns {
     -webkit-column-count: 4;
@@ -105,7 +96,7 @@ body .navbar .navbar-brand {
     margin: auto 5px;
 }
 
-#likeButton{
+#likeButton {
     transition: 0.4s;
 }
 
@@ -113,9 +104,141 @@ body .navbar .navbar-brand {
     width: 50px;
 }
 
-.comments-block .comm{
+.comments-block .comm {
     max-height: 30px;
 }
+
+#if-login {
+    justify-content: space-evenly;
+}
+
+@media (max-width: 576px) {
+    .for-all {
+        display: flex;
+    }
+
+    .for-medium {
+        display: none;
+    }
+
+
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    /*#search-input {*/
+    /*    width: 600px;*/
+    /*}*/
+    /*#search {*/
+    /*    margin-right: 20px;*/
+    /*}*/
+    /*.navbar-toggler {*/
+    /*    width: 200px;*/
+    /*}*/
+    /*#main-menu {*/
+    /*    display: flex;*/
+    /*    justify-content: stretch;*/
+    /*}*/
+    /*#main-menu .nav-item{*/
+    /*    padding-right: 10px;*/
+    /*}*/
+    .for-all {
+        display: none;
+    }
+
+    .for-medium {
+        display: flex;
+    }
+
+    .for-medium #toggler button {
+        width: 200px;
+    }
+}
+
+@media (min-width: 768px) {
+    #if-login .nav-item {
+        margin: 0 20px;
+    }
+
+    .navbar-toggler {
+        width: 90px;
+    }
+
+    .for-medium {
+        display: none;
+    }
+
+    .for-all {
+        display: flex;
+    }
+
+    /*#for-user{*/
+    /*    margin-right: 20px;*/
+    /*}*/
+}
+
+@media (min-width: 1024px) {
+    #if-login {
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+    }
+
+    #if-login .nav-item {
+
+    }
+
+    .navbar-toggler {
+        width: 90px;
+        padding-left: 20px;
+    }
+
+}
+
+@media (min-width: 1150px) {
+    #if-login {
+        justify-content: flex-end;
+        width: 550px;
+    }
+}
+
+@media (min-width: 1250px) {
+    #if-login {
+        justify-content: flex-end;
+        width: 700px;
+    }
+}
+
+@media (min-width: 1250px) {
+    #if-login {
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 1700px) {
+    #if-login {
+        justify-content: stretch;
+        padding-right: 250px;
+    }
+}
+
+@media (min-width: 1900px) {
+    #if-login {
+        justify-content: stretch;
+        padding-right: 200px;
+    }
+}
+
+@media (min-device-width: 2200px) {
+    #if-login {
+        padding-left: 600px;
+    }
+}
+
+@media (min-device-width: 2400px) {
+    #if-login {
+        padding-left: 700px;
+    }
+}
+
 
 /*# sourceMappingURL=main.css.map */
 
