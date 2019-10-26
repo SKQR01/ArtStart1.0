@@ -51,7 +51,7 @@ def reg_user():
         if confirm_password == password:
             pic = Picture.query.filter(Picture.name == '.no_image.jpg').first()
 
-            u = User(nickname=nickname, email=email, password=password, active=True, description=' ')
+            u = User(nickname=nickname, email=email, password=password, active=True, description=' ', is_admin=False)
 
             u.avatar.append(pic)
             db.session.add(u)

@@ -1,6 +1,5 @@
 from app import app
-import view
-import os
+
 
 from posts.blueprint import posts
 from users.blueprint import users
@@ -10,6 +9,11 @@ from users.blueprint import users
 
 app.register_blueprint(posts, url_prefix='/posts')
 app.register_blueprint(users, url_prefix='/users')
+
+### Админка ###
+# admin.add_view(ModelView(User, db.session))
+# admin.add_view(ModelView(Post, db.session))
+
 
 
 ### Запуск приложения ###

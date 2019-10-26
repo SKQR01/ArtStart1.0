@@ -16,3 +16,5 @@ def user_profile(slug):
     return render_template('users/user_profile.html', user_profile=u)
 
 
+
+

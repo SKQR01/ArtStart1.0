@@ -139,7 +139,8 @@ def add_comment(id):
         current_comment = Comment(text=text_comment[0])
         current_comment.author.append(user)
         post.comment.append(current_comment)
-
+        print(text_comment)
+        print(current_user)
         db.session.add(current_comment)
 
         db.session.commit()
